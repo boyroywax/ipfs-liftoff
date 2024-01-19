@@ -1,0 +1,12 @@
+services:
+
+  ipfs-libp2p-webrtc-star-server-custom:
+    container_name: ipfs-liftoff-libp2p-webrtc-star-server-custom
+    image: ipfs-liftoff-libp2p-webrtc-star-server-custom:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 9090:9090
+
+  

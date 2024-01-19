@@ -1,0 +1,7 @@
+services:
+  ipfs-node:
+    container_name: ipfs-liftoff-libp2p-browser-react
+    image: ipfs-liftoff-libp2p-browser-react:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
