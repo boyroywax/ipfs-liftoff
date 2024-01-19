@@ -1,10 +1,15 @@
 # libp2p WebRTC Star Signalling Server
 
-## Build
+## Build & Run
 
-The ```libp2p/webrtc-star-signalling-server``` package can be implemented a few ways, depending on the level of control required.
+The ```libp2p/webrtc-star-signalling-server``` package can be implemented a few ways, depending on the level of control required.  Four options are provided below.
 
-### Recreate the Pre-Setup Image
+- A.) Recreate the Pre-Setup Image
+- B.) Extend the Pre-Setup Image
+- C.) Manual Setup - Image
+- D.) Manual Setup - NodeJS
+
+### A. Recreate the Pre-Setup Image
 
 The following is a ```Dockerfile``` used to run the ```@libp2p/webrtc-star-signalling-server:latest``` package.
 
@@ -24,7 +29,7 @@ EXPOSE 9090
 CMD [ "webrtc-star" ]
 ```
 
-### Extend the Pre-Setup Image
+### B. Extend the Pre-Setup Image
 
 This image uses the ```libp2p/js-libp2p-webrtc-star:latest``` image as a base.
 
@@ -38,7 +43,7 @@ ENV VIRTUAL_PORT "9090"
 EXPOSE 9090
 ```
 
-### Manual Setup Image
+### C. Manual Setup - Image
 
 Builds and runs the ```@libp2p/webrtc-star-signalling-server:latest``` package using the ```sigServer``` object declared in the ```src/index.ts``` file.
 
@@ -46,10 +51,38 @@ Builds and runs the ```@libp2p/webrtc-star-signalling-server:latest``` package u
 docker-compose up --build
 ```
 
+### D. Manual Setup - NodeJS
+
+Builds and runs the ```@libp2p/webrtc-star-signalling-server:latest``` package using the ```sigServer``` object declared in the ```src/index.ts``` file.
+
+#### 1. Install the packages
+```sh
+npm install
+```
+
+#### 2. Build the package
+```sh
+npm run build
+```
+
+#### 3. Run the package
+```sh
+npm start
+```
+
+## Check the Server
+
+The server can be checked by visiting the domain and port in a browser.
+
+```sh
+http://signal.ipfs.example.xyz:9090
+```
+
+[![Screenshot of the libp2p WebRTC Star Signalling Server](./success.png)](./success.png)
 
 
 ## References
 
-[1] Archived Libp2p WebRTC Star Signalling Server - (https://github.com/libp2p/js-libp2p-webrtc-star)[https://github.com/libp2p/js-libp2p-webrtc-star]
+[1] Archived Libp2p WebRTC Star Signalling Server - [https://github.com/libp2p/js-libp2p-webrtc-star](https://github.com/libp2p/js-libp2p-webrtc-star)
 
-[2] Archived Libp2p WebRTC Star Signalling Server Deployment Doc - (https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md)[https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md]
+[2] Archived Libp2p WebRTC Star Signalling Server Deployment Doc - [https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md](https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md)
