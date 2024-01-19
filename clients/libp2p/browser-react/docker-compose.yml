@@ -5,3 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+      - 4001:4001
+      - 4002:4002/udp
