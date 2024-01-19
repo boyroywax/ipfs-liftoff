@@ -86,3 +86,5 @@ http://signal.ipfs.example.xyz:9090
 [1] Archived Libp2p WebRTC Star Signalling Server - [https://github.com/libp2p/js-libp2p-webrtc-star](https://github.com/libp2p/js-libp2p-webrtc-star)
 
 [2] Archived Libp2p WebRTC Star Signalling Server Deployment Doc - [https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md](https://github.com/libp2p/js-libp2p-webrtc-star/blob/master/packages/webrtc-star-signalling-server/DEPLOYMENT.md)
+
+[3] Libp2p WebRTC Star Signalling Server NPM - [https://www.npmjs.com/package/@libp2p/webrtc-star-signalling-server](https://www.npmjs.com/package/@libp2p/webrtc-star-signalling-server)
