@@ -2,20 +2,9 @@
 
 ## Build
 
+The ```libp2p/webrtc-star-signalling-server``` package can be implemented a few ways, depending on the level of control required.
 
-### Presetup Image
-
-This image uses the ```libp2p/js-libp2p-webrtc-star:latest``` image as a base.
-
-```Dockerfile
-FROM libp2p/js-libp2p-webrtc-star:latest
-
-ENV DOMAIN "signal.ipfs.example.xyz"
-ENV VIRTUAL_HOST "signal.ipfs.example.xyz"
-ENV VIRTUAL_PORT "9090"
-
-EXPOSE 9090
-```
+### Recreate the Pre-Setup Image
 
 The following is a ```Dockerfile``` used to run the ```@libp2p/webrtc-star-signalling-server:latest``` package.
 
@@ -34,6 +23,30 @@ EXPOSE 9090
 #   DEBUG=signalling-server,signalling-server:error
 CMD [ "webrtc-star" ]
 ```
+
+### Extend the Pre-Setup Image
+
+This image uses the ```libp2p/js-libp2p-webrtc-star:latest``` image as a base.
+
+```Dockerfile
+FROM libp2p/js-libp2p-webrtc-star:latest
+
+ENV DOMAIN "signal.ipfs.example.xyz"
+ENV VIRTUAL_HOST "signal.ipfs.example.xyz"
+ENV VIRTUAL_PORT "9090"
+
+EXPOSE 9090
+```
+
+### Manual Setup Image
+
+Builds and runs the ```@libp2p/webrtc-star-signalling-server:latest``` package using the ```sigServer``` object declared in the ```src/index.ts``` file.
+
+```sh
+docker-compose up --build
+```
+
+
 
 ## References
 
