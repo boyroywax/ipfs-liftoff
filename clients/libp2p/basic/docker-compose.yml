@@ -1,0 +1,12 @@
+services:
+  ipfs-node:
+    container_name: ipfs-liftoff-libp2p-basic
+    image: ipfs-liftoff-libp2p-basic:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  
+
+
+    
