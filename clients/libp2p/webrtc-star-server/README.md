@@ -17,7 +17,7 @@ ENV VIRTUAL_PORT "9090"
 EXPOSE 9090
 ```
 
-The following is the ```Dockerfile``` used to build the ```libp2p/webrtc-star-server:latest``` image.
+The following is a ```Dockerfile``` used to run the ```@libp2p/webrtc-star-signalling-server:latest``` package.
 
 ```Dockerfile
 FROM node:lts-alpine as node
@@ -33,7 +33,7 @@ EXPOSE 9090
 # Server logging can be enabled via the DEBUG environment variable:
 #   DEBUG=signalling-server,signalling-server:error
 CMD [ "webrtc-star" ]
-
+```
 
 ## References
 
