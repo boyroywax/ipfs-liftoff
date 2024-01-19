@@ -2,6 +2,11 @@
 
 This is a basic LibP2P client that can connect to other public peers.
 
+## Quickstart - Run the Container Image
+```sh
+docker-compose up --build
+```
+
 ## Usage
 
 ### Install dependencies
@@ -20,11 +25,6 @@ npm run build
 
 ```sh
 npm start
-```
-
-### Run the Container Image
-```sh
-docker-compose up
 ```
 
 ## Configuration
@@ -84,7 +84,6 @@ const bootstrapConfig = { list: [
 The client will listen on the following addresses:
 
 ```typescript
-...
 addresses: {
     listen: [
         '/ip4/0.0.0.0/udp/0/',
@@ -94,8 +93,7 @@ addresses: {
         '/ip4/0.0.0.0/tcp/0',
         '/webrtc',
     ],
-}, 
-...
+},
 ```
 
 ### Transports
@@ -110,7 +108,6 @@ transports: [
     circuitRelayTransport(),
     webRTC()
 ],
-...
 ```
 
 ### Connection Encryption
@@ -118,11 +115,9 @@ transports: [
 The client will use the following connection encryptions:
 
 ```typescript
-...
 connectionEncryption: [
     noise()
 ],
-...
 ```
 
 ### Stream Multiplexers
@@ -130,12 +125,10 @@ connectionEncryption: [
 The client uses the following stream multiplexers:
 
 ```typescript
-...
 streamMuxers: [
     mplex(),   // Phasing out, No longer supported by Kubo
     yamux()
 ],
-...
 ```
 
 ### Peer Discovery
@@ -143,12 +136,10 @@ streamMuxers: [
 The client will use the following peer discovery mechanisms:
 
 ```typescript
-...
 peerDiscovery: [
     bootstrap(),
     mdns()
 ],
-...
 ```
 
 ### Connection Gater
@@ -156,18 +147,16 @@ peerDiscovery: [
 The client will use the following connection gater:
 
 ```typescript
-...
 connectionGater: {
     denyDialMultiaddr: async () => {
         return false        // Allow all dial multiaddrs
     }
 }
-...
 ```
 
 ### Services
 
-Many services are used to make the node discoverable. The client will use the following services:
+Many services can be used to make the node discoverable.  The following services are used to exemplify the use of services:
 
 ```typescript
 services: {
@@ -176,13 +165,13 @@ services: {
     upnpNAT: uPnPNAT(),
     identify: identify(),
     dht: kadDHT({
-    clientMode: false,
-    validators: {
-        ipns: ipnsValidator
-    },
-    selectors: {
-        ipns: ipnsSelector
-    }
+        clientMode: false,
+        validators: {
+            ipns: ipnsValidator
+        },
+        selectors: {
+            ipns: ipnsSelector
+        }
     }),
     lanDHT: kadDHT({
         protocol: '/ipfs/lan/kad/1.0.0',
@@ -194,3 +183,6 @@ services: {
     }),
     dcutr: dcutr(),
 },
+```
+
+> 🌳 View the complete [JS LibP2P API](https://libp2p.github.io/js-libp2p/index.html)

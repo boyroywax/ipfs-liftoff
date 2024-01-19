@@ -95,12 +95,9 @@ async function createNode() {
 
   await libp2p.start()
 
-  libp2p.afterStart = async () => {
-    console.log('libp2p has started')
-    const listenAddrs = libp2p.getMultiaddrs()
-    console.log('libp2p is listening on the following addresses: ', listenAddrs)
-
-  }
+  console.log('libp2p has started')
+  const listenAddrs = libp2p.getMultiaddrs()
+  console.log('libp2p is listening on the following addresses: ', listenAddrs)
 
   libp2p.addEventListener('peer:discovery', async (evt: any) => {
     console.log('Discovered %s', evt.detail.id.toString()) // Log discovered peer
