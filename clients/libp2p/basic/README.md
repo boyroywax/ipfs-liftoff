@@ -67,7 +67,7 @@ npm install \
 
 ### Bootstrap nodes
 
-The client will connect to the following bootstrap nodes by default:
+The client will connect to the following public bootstrap nodes:
 
 ```typescript
 const bootstrapConfig = { list: [
@@ -81,7 +81,7 @@ const bootstrapConfig = { list: [
 
 ### Listen addresses
 
-The client will listen on the following addresses by default:
+The client will listen on the following addresses:
 
 ```typescript
 ...
@@ -98,3 +98,99 @@ addresses: {
 ...
 ```
 
+### Transports
+
+The client will use the following transports:
+
+```typescript
+transports: [
+    webSockets(),
+    webTransport(),
+    tcp(),
+    circuitRelayTransport(),
+    webRTC()
+],
+...
+```
+
+### Connection Encryption
+
+The client will use the following connection encryptions:
+
+```typescript
+...
+connectionEncryption: [
+    noise()
+],
+...
+```
+
+### Stream Multiplexers
+
+The client uses the following stream multiplexers:
+
+```typescript
+...
+streamMuxers: [
+    mplex(),   // Phasing out, No longer supported by Kubo
+    yamux()
+],
+...
+```
+
+### Peer Discovery
+
+The client will use the following peer discovery mechanisms:
+
+```typescript
+...
+peerDiscovery: [
+    bootstrap(),
+    mdns()
+],
+...
+```
+
+### Connection Gater
+
+The client will use the following connection gater:
+
+```typescript
+...
+connectionGater: {
+    denyDialMultiaddr: async () => {
+        return false        // Allow all dial multiaddrs
+    }
+}
+...
+```
+
+### Services
+
+Many services are used to make the node discoverable. The client will use the following services:
+
+```typescript
+services: {
+    pubsub: gossipsub(),
+    autonat: autoNAT(),
+    upnpNAT: uPnPNAT(),
+    identify: identify(),
+    dht: kadDHT({
+    clientMode: false,
+    validators: {
+        ipns: ipnsValidator
+    },
+    selectors: {
+        ipns: ipnsSelector
+    }
+    }),
+    lanDHT: kadDHT({
+        protocol: '/ipfs/lan/kad/1.0.0',
+        peerInfoMapper: removePublicAddressesMapper,
+        clientMode: false
+    }),
+    relay: circuitRelayServer({
+        advertise: true
+    }),
+    dcutr: dcutr(),
+},

@@ -1,7 +1,7 @@
 {
-  "name": "signal",
+  "name": "ipfs-liftoff-libp2p-basic",
   "version": "0.0.1",
-  "description": "webstar signal server",
+  "description": "Basic libp2p node",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -9,8 +9,8 @@
     "build": "tsc",
     "start": "node build/index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "boyrowyax",
+  "license": "MIT",
   "devDependencies": {
     "typescript": "^5.3.3"
   },
