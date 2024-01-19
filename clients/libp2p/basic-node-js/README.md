@@ -79,6 +79,10 @@ const bootstrapConfig = { list: [
 ]}
 ```
 
+>The linked snippet can be imported and used to create a custom bootstrap list
+>
+>[https://github.com/libp2p/js-libp2p-examples/blob/main/examples/js-libp2p-example-discovery-mechanisms/bootstrappers.js](https://github.com/libp2p/js-libp2p-examples/blob/main/examples/js-libp2p-example-discovery-mechanisms/bootstrappers.js)
+
 ### Listen addresses
 
 The client will listen on the following addresses:
@@ -185,4 +189,11 @@ services: {
 },
 ```
 
-> 🌳 View the complete [JS LibP2P API](https://libp2p.github.io/js-libp2p/index.html)
+
+## References
+> [1] 🌳 JS LibP2P API - [https://libp2p.github.io/js-libp2p/index.html](https://libp2p.github.io/js-libp2p/index.html)
+    
+> [2]  JS LibP2P Examples - [https://github.com/libp2p/js-libp2p-examples](https://github.com/libp2p/js-libp2p-examples)
+
+> [3]  JS LibP2P Discovery Mechanism Example - [https://github.com/libp2p/js-libp2p-examples/tree/main/examples/js-libp2p-example-discovery-mechanisms](https://github.com/libp2p/js-libp2p-examples/tree/main/examples/js-libp2p-example-discovery-mechanisms)
+
