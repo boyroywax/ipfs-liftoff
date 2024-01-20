@@ -13,5 +13,8 @@
   "license": "MIT",
   "dependencies": {
     "@multiformats/multiaddr": "^12.1.12"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11"
   }
 }
