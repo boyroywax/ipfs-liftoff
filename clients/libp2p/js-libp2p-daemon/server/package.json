@@ -1,0 +1,31 @@
+{
+  "name": "ipfs-liftoff-libp2p-daemon-server",
+  "version": "0.0.1",
+  "description": "Server running an instance of the libp2p daemon",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+  "author": "boyrowyax",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.11.15",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@chainsafe/libp2p-noise": "^15.0.0",
+    "@chainsafe/libp2p-yamux": "^6.0.1",
+    "@libp2p/bootstrap": "^10.0.12",
+    "@libp2p/circuit-relay-v2": "^1.0.12",
+    "@libp2p/daemon-server": "^7.0.1",
+    "@libp2p/mdns": "^10.0.12",
+    "@libp2p/webrtc": "^4.0.16",
+    "@libp2p/websockets": "^8.0.12",
+    "@libp2p/webtransport": "^4.0.16",
+    "@multiformats/multiaddr": "^12.1.12",
+    "libp2p": "^1.2.0"
+  }
+}

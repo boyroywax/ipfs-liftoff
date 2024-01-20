@@ -1,0 +1,11 @@
+services:
+  ipfs-libp2p-daemon-client:
+    container_name: ipfs-liftoff-libp2p-daemon-client
+    image: ipfs-liftoff-libp2p-daemon-client:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+
+  
