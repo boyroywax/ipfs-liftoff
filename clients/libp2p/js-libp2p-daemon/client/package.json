@@ -12,7 +12,9 @@
   "author": "boyrowyax",
   "license": "MIT",
   "dependencies": {
-    "@multiformats/multiaddr": "^12.1.12"
+    "@multiformats/multiaddr": "^12.1.12",
+    "@libp2p/daemon-client": "^8.0.0"
+
   },
   "devDependencies": {
     "@types/jest": "^29.5.11"

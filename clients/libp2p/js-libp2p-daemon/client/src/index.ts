@@ -1,7 +1,7 @@
 import { createClient } from '@libp2p/daemon-client'
 import { multiaddr } from '@multiformats/multiaddr'
 
-const serverAddr = multiaddr('/ip4/127.0.0.1/tcp/51440')
+const serverAddr = multiaddr('/ip4/0.0.0.0/tcp/54357')
 const client = createClient(serverAddr)
 
 // interact with the daemon
