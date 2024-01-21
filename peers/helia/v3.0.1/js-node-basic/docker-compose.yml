@@ -1,0 +1,7 @@
+services:
+  ipfs-node:
+    container_name: ipfs-liftoff-helia-v3.0.1-basic
+    image: ipfs-liftoff-helia-v3.0.1-basic:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
