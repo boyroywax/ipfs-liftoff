@@ -1,0 +1,21 @@
+version: '3'
+services:
+  kubo-ipfs-node:
+    container_name: ipfs-liftoff-kubov0.25.0-ipfs-node
+    image: ipfs-liftoff-kubov0.25.0-node-img:latest
+    # network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      IPFS_PATH: /data/ipfs
+      IPFS_LOGGING: 'debug'
+      IPFS_LOGGING_LEVEL: debug
+    volumes:
+      - ./data/ipfs:/data/ipfs
+    ports:
+      - 4001:4001
+      - 4002:4002/udp
+      - 4003:4003
+      - 5001:5001
+      - 8080:8080

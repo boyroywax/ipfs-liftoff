@@ -1,0 +1,19 @@
+{
+  "name": "ipfs-liftoff-js-libp2p-snippets",
+  "version": "0.0.1",
+  "description": "js-libp2p snippets",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "@libp2p/peer-id-factory": "^4.0.5",
+    "@libp2p/peer-id": "^4.0.5",
+    "typescript": "^5.3.3"
+  },
+  "author": "boyrowyax",
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "createPeerId": "node ./build/generatePeerId.js"
+  }
+}
