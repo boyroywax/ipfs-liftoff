@@ -1,4 +1,4 @@
-# kubo-v0.25.0
+# kubo-v0.26.0-rc1
 
 ## Quick Start
 
@@ -11,6 +11,6 @@ docker-compose up
 
 ## References
 
-[1] Release Notes - [https://github.com/ipfs/kubo/releases/tag/v0.25.0](https://github.com/ipfs/kubo/releases/tag/v0.25.0)
+[1] Release Notes - [https://github.com/ipfs/kubo/releases/tag/v0.26.0-rc1](https://github.com/ipfs/kubo/releases/tag/v0.26.0-rc1)
 
-[2] Kubo v0.25.0 Github Repo - [https://github.com/ipfs/kubo/tree/version-update-v0.25](https://github.com/ipfs/kubo/tree/version-update-v0.25)
+[2] Kubo v0.26.0-rc1 Github Repo - [https://github.com/ipfs/kubo/tree/release-v0.26.0](https://github.com/ipfs/kubo/tree/release-v0.26.0)
