@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "dependencies": {
-    "@libp2p/peer-id-factory": "^4.0.5",
-    "@libp2p/peer-id": "^4.0.5",
+    "@libp2p/peer-id-factory": "4.0.5",
+    "@libp2p/peer-id": "4.0.5",
+    "libp2p": "1.2.0",
     "typescript": "^5.3.3"
   },
   "author": "boyrowyax",
