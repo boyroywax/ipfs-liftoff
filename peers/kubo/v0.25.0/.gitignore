@@ -1,1 +1,3 @@
-data
+data/ipfs/keystore
+data/ipfs/blocks
+data/ipfs/datastore
