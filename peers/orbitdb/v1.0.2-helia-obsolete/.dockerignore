@@ -1,0 +1,13 @@
+# Ignore node_modules directory
+node_modules
+
+# Ignore build output directory
+dist
+
+# Ignore development files
+*.ts
+*.tsx
+
+# Ignore source control files
+.git
+.gitignore

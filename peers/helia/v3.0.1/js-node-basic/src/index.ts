@@ -17,6 +17,7 @@ import { webSockets } from '@libp2p/websockets'
 import { webTransport } from '@libp2p/webtransport'
 import { yamux } from '@chainsafe/libp2p-yamux'
 import { createLibp2p } from 'libp2p'
+import { createHelia } from 'helia'
 
 
 async function createNode() {
@@ -93,7 +94,14 @@ async function createNode() {
     }
   })
 
-  await libp2p.start()
+  // await libp2p.start()
+
+  const helia = await createHelia({
+    libp2p
+  })
+
+  const pins = helia.pins
+  console.log('pins: ', pins)
 
   console.log('libp2p has started')
   const listenAddrs = libp2p.getMultiaddrs()
