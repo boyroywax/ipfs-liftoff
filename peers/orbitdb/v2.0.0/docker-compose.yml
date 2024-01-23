@@ -1,0 +1,7 @@
+services:
+  ipfs-node:
+    container_name: ipfs-liftoff-orbitdb-v2.0.0
+    image: ipfs-liftoff-orbitdb-v2.0.0:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
