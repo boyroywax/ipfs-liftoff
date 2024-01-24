@@ -8,6 +8,36 @@ This repository contains tools and examples for IPFS, Libp2p, OrbitDB, Bacalhau,
 - P2P Client/Server Examples found in `peers/`.  Peers are organized by project and version.
 
 
+## Why P2P?
+
+- Cost Efficiency
+- Fault Tolerance
+- Scalability
+- Privacy
+- Security
+- Performance
+- Standardization
+
+
+## What's the Goal?
+
+>  Exemplify a **distributed computing framework** that allows you to run your code, store files, utilize databases, serve content and applications in a distributed and **trustless peer-to-peer** manner.
+
+### Standards
+
+1. Access is permissionless and censorship resistant
+    - Based on the DID standard. [[https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)]
+
+2. Data is verifiable and immutable
+    - Utilizing CIDs [[https://py-cid.readthedocs.io/en/master/](https://py-cid.readthedocs.io/en/master/)]
+
+3. Computation is secure, private, fault tolerant, and future proof
+    - Compute Over Data [[https://docs.bacalhau.org/](https://docs.bacalhau.org/)]
+
+4. Network is scalable, performant, and cost efficient.
+    - Interconnectivity by libp2p [[https://github.com/libp2p/specs/](https://github.com/libp2p/specs/)]
+
+
 ## Application Stack
 
 ### `Libp2p` - P2P Networking Framework
@@ -26,15 +56,4 @@ OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS a
 
 ### `Bacalhau` - Distributed Computing
 
-Bacalhau is a distributed computing framework that allows you to run your code in a distributed manner. It is built on top of IPFS and OrbitDB. It is a framework that allows you to run your code in a distributed manner. Docker containers and WASM are supported. The output is stored IPFS, returning the CID.
-
-
-## Why P2P?
-
-- Cost Efficiency
-- Fault Tolerance
-- Scalability
-- Privacy
-- Security
-- Performance
-- Standardization
+Bacalhau is a distributed computing framework that allows you to run your code in a distributed manner. It is built on top of IPFS and OrbitDB. It is a framework that allows you to run your code in a distributed manner. Docker containers and WASM are supported. The output is stored on IPFS, returning the CID.
