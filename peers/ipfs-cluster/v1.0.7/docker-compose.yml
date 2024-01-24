@@ -1,0 +1,44 @@
+services:
+  ipfs-node:
+    container_name: ipfs-node
+    image: ipfs-node-img:latest
+    # network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    environment:
+      IPFS_PATH: /data/ipfs
+      IPFS_LOGGING: 'debug'
+      IPFS_LOGGING_LEVEL: debug
+    volumes:
+      - ./data/ipfs:/data/ipfs
+    ports:
+      - 4001:4001
+      - 5001:5001
+      - 8080:8080
+
+  ipfs-cluster:
+    depends_on:
+      - ipfs-node
+    container_name: ipfs-cluster-service
+    image: ipfs-cluster-service-img:latest
+    # network_mode: host
+    build:
+      context: .
+      dockerfile: Dockerfile.cluster
+    environment:
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs-node/tcp/5001
+      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
+      BOOTSTRAP_PEER_ID: 12D3Kxxx
+      CLUSTER_SECRET: '2df17xxx' # From shell variable if set
+      BOOTSTRAP_CLUSTER_NAME: ipfs-liftoff-cluster-public
+      OVERWRITE_CONFIG: 'false'
+    ports:
+      - "9094:9094"
+      - "9095:9095"
+      - "9096:9096"
+    volumes:
+      - ./data/ipfs-cluster:/data/ipfs-cluster
+
+
+    

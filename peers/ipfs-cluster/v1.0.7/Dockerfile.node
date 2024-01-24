@@ -1,0 +1,18 @@
+
+# Use the go-ipfs:0.4.24 base image
+FROM ipfs/kubo:v0.26.0
+
+# Mount the ipfs-node dir
+VOLUME /data/ipfs 
+
+# Copy the custom entrypoint.sh script
+COPY entrypoint-node.sh /usr/local/bin/entrypoint.sh
+
+# Make the entrypoint.sh script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Expose the ipfs-cluster-follow port
+EXPOSE 4001 5001 8080
+
+# Set the entrypoint to the custom script
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

@@ -1,0 +1,20 @@
+
+# Use a base image with IPFS installed
+FROM ipfs/ipfs-cluster:v1.0.7
+
+VOLUME [ "/data/ipfs-cluster" ]
+
+# Copy the custom entrypoint.sh script
+COPY entrypoint-cluster.sh /usr/local/bin/entrypoint.sh
+
+# Make the entrypoint.sh script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Copy the service configuration file
+COPY service.json /data/service.json
+
+# Expose the ipfs-cluster-follow port
+EXPOSE 9094 9095 9096
+
+# Set the entrypoint to the custom script
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

@@ -89,8 +89,8 @@
     "RootRedirect": ""
   },
   "Identity": {
-    "PeerID": "12D3KooWApc2x7LSf1qBk3F2mtnq19ehJBfTkKWksz1bHAAqjRrV",
-    "PrivKey": "CAESQA8m3LmfkQbdqyZGK/s+lLyNxojFASpcMYbQrXYa+p9WDutdZmkCqzLhkw7BgBgrW1GklRqJMuYdJKywADkdLQY="
+    "PeerID": "12D3KooWGBfF6th4rRvNEBthm8vkwuAxMTE1mxRceMFoCVsqGXXd",
+    "PrivKey": "CAESQAguuVoTeEZJipMWo+8goeRxEThOH5ff8lkO4kQUkkFZXpqgHqPOGHTEijXl/nD8omETc3ggg7LtoonOqW25ykA="
   },
   "Internal": {},
   "Ipns": {
