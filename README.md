@@ -1,14 +1,28 @@
 # `ipfs-liftoff 🛸 `
-Tools &amp; Examples for IPFS, IPFS-Cluster, Libp2p, OrbitDB, Bacalhua...
+> Tools &amp; Examples for IPFS, IPFS-Cluster, Libp2p, OrbitDB, Bacalhua...
+
+## Table of Contents
+- [Overview](#overview)
+- [Goal](#whats-the-goal)
+- [Application Stack](#application-stack)
 
 ## Overview
 
 This repository contains tools and examples for IPFS, Libp2p, OrbitDB, Bacalhau, and other distributed computing technologies.  Included are `Dockerfiles`, `docker-compose.yaml` files, `package.json` and other configuration files to help you get started.
 
-- P2P Client/Server Examples found in `peers/`.  Peers are organized by project and version.
+### Sections
+
+1. [`peers/`](./peers/README.md) - P2P Client/Server Examples.  Peers are organized by project and version.
+2. [`deploy/`](./deploy/README.md) - deployment examples for different infrastructures.
+3. [`tools/`](./tools/README.md) - tools and code snippets for working with libp2p, ipfs, orbitdb...
 
 
-## Why P2P?
+
+## What's the Goal?
+
+>  Exemplify a **distributed computing framework** that allows you to run your code, store files, utilize databases, serve content and applications in a distributed and **trustless peer-to-peer** manner.
+
+### Why P2P?
 
 - Cost Efficiency
 - Fault Tolerance
@@ -18,18 +32,13 @@ This repository contains tools and examples for IPFS, Libp2p, OrbitDB, Bacalhau,
 - Performance
 - Standardization
 
-
-## What's the Goal?
-
->  Exemplify a **distributed computing framework** that allows you to run your code, store files, utilize databases, serve content and applications in a distributed and **trustless peer-to-peer** manner.
-
 ### Standards
 
 1. Access is permissionless and censorship resistant
     - Based on the DID standard. [[https://www.w3.org/TR/did-core/](https://www.w3.org/TR/did-core/)]
 
 2. Data is verifiable and immutable
-    - Utilizing CIDs [[https://py-cid.readthedocs.io/en/master/](https://py-cid.readthedocs.io/en/master/)]
+    - Utilizing CIDs [[https://github.com/multiformats/cid](https://github.com/multiformats/cid)]
 
 3. Computation is secure, private, fault tolerant, and future proof
     - Compute Over Data [[https://docs.bacalhau.org/](https://docs.bacalhau.org/)]
