@@ -1,5 +1,5 @@
 # `ipfs-liftoff 🛸 `
-Tools &amp; Examples for IPFS, Libp2p, OrbitDB, Bacalhua...
+Tools &amp; Examples for IPFS, IPFS-Cluster, Libp2p, OrbitDB, Bacalhua...
 
 ## Overview
 
@@ -27,3 +27,14 @@ OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS a
 ### `Bacalhau` - Distributed Computing
 
 Bacalhau is a distributed computing framework that allows you to run your code in a distributed manner. It is built on top of IPFS and OrbitDB. It is a framework that allows you to run your code in a distributed manner. Docker containers and WASM are supported. The output is stored IPFS, returning the CID.
+
+
+## Why P2P?
+
+- Cost Efficiency
+- Fault Tolerance
+- Scalability
+- Privacy
+- Security
+- Performance
+- Standardization
