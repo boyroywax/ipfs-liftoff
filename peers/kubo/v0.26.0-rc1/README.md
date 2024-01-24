@@ -13,4 +13,4 @@ docker-compose up
 
 [1] Release Notes - [https://github.com/ipfs/kubo/releases/tag/v0.26.0-rc1](https://github.com/ipfs/kubo/releases/tag/v0.26.0-rc1)
 
-[2] Kubo v0.26.0-rc1 Github Repo - [https://github.com/ipfs/kubo/tree/release-v0.26.0](https://github.com/ipfs/kubo/tree/release-v0.26.0)
+[2] Kubo v0.26.0-rc1 Github Repo - [https://github.com/ipfs/kubo/tree/release-v0.26.0](https://github.com/ipfs/kubo/tree/release-v0.26.0-rc1)
