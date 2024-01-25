@@ -1,4 +1,4 @@
-# `ipfs-liftoff 🛸 `
+# `IPFS-liftoff 🛸 `
 > Tools &amp; Examples for IPFS, IPFS-Cluster, Libp2p, OrbitDB, Bacalhua...
 
 ## Table of Contents
@@ -12,15 +12,14 @@ This repository contains tools and examples for IPFS, Libp2p, OrbitDB, Bacalhau,
 
 ### Sections
 
-1. [`peers/`](./peers/README.md) - P2P Client/Server Examples.  Peers are organized by project and version.
-2. [`deploy/`](./deploy/README.md) - deployment examples for different infrastructures.
-3. [`tools/`](./tools/README.md) - tools and code snippets for working with libp2p, ipfs, orbitdb...
-
+1. [`peers/`](./peers/) - client/server examples, organized by project and version
+2. [`deploy/`](./deploy/) - deployments for various use-cases & infrastructures
+3. [`tools/`](./tools/) - tools and code snippets for working with libp2p, ipfs, orbitdb...
 
 
 ## What's the Goal?
 
->  Exemplify a **distributed computing framework** that allows you to run your code, store files, utilize databases, serve content and applications in a distributed and **trustless peer-to-peer** manner.
+>  Exemplify a **distributed computing framework** that allows you to run your code, store files, utilize databases, serve content and applications in a **trustless peer-to-peer** manner.
 
 ### Why P2P?
 
@@ -51,13 +50,11 @@ This repository contains tools and examples for IPFS, Libp2p, OrbitDB, Bacalhau,
 
 ### `Libp2p` - P2P Networking Framework
 
-P2P allows the creation of a network of nodes that can communicate with each other without the need for a central server. This is the basis for decentralized applications (DApps) and peer-to-peer (P2P) networks.
+LibP2P allows the creation of a network of nodes that can communicate with each other without the need for a central server. This is the basis for decentralized applications (DApps) and peer-to-peer (P2P) networks.
 
 ### `IPFS` - InterPlanetary File System
 
-Built on top of libp2p, IPFS is a distributed file system that seeks to connect all computing devices with the same system of files. In some ways, IPFS is similar to the Web, but IPFS could be seen as a single BitTorrent swarm, exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalized Merkle DAG, a data structure upon which one can build versioned file systems, blockchains, and even a Permanent Web.
-
-IPFS combines a distributed hashtable, an incentivized block exchange, and a self-certifying namespace. IPFS has no single point of failure, and nodes do not need to trust each other.
+Built on top of LibP2P, IPFS is a distributed file system that seeks to connect all computing devices with the same system of files. In some ways, IPFS is similar to the Web, but IPFS could be seen as a single BitTorrent swarm, exchanging objects within one Git repository. In other words, IPFS provides a high throughput content-addressed block storage model, with content-addressed hyperlinks. This forms a generalized Merkle DAG, a data structure upon which one can build versioned file systems, blockchains, and even a Permanent Web.
 
 ### `OrbitDB` - Distributed Database
 
@@ -66,3 +63,7 @@ OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS a
 ### `Bacalhau` - Distributed Computing
 
 Bacalhau is a distributed computing framework that allows you to run your code in a distributed manner. It is built on top of IPFS and OrbitDB. It is a framework that allows you to run your code in a distributed manner. Docker containers and WASM are supported. The output is stored on IPFS, returning the CID.
+
+
+## Questions? Corrections? Suggestions?
+Please open an issue or submit a pull request.  Thanks!

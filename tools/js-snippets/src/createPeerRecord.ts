@@ -1,5 +1,5 @@
- import { multiaddr } from '@multiformats/multiaddr';
- import { PeerRecord, RecordEnvelope } from '@libp2p/peer-record';
+//  import { multiaddr } from '@multiformats/multiaddr';
+//  import { PeerRecord, RecordEnvelope } from '@libp2p/peer-record';
 
 /*
 
@@ -21,25 +21,23 @@ The library is now available in the global scope as `Libp2pPeerRecord` and `Mult
 */
  
  
- // const activeMultiaddrs = libp2pNode.getMultiaddrs()
- const multiaddr1 = multiaddr('/dns4/signal.ipfs.trnkt.xyz/tcp/443/wss/p2p-webrtc-star/p2p/' + peerIdCreate)
- const multiaddr2 = multiaddr('/dns/localhost/tcp/0/wss/p2p-webrtc-star/p2p/' + peerIdCreate )
- const multiaddr3 = multiaddr('/dns/localhost/tcp/0/wss/p2p/' + peerIdCreate )
- const multiAddrs = [
-   // activeMultiaddrs[0], 
-   multiaddr1,
-   multiaddr2,
-   multiaddr3
- ]
+//  const activeMultiaddrs = libp2pNode.getMultiaddrs()
+//  const multiaddr1 = multiaddr('/dns/localhost/tcp/0/wss/p2p-webrtc-star/p2p/' + peerIdCreate )
+//  const multiaddr2 = multiaddr('/dns/localhost/tcp/0/wss/p2p/' + peerIdCreate )
+//  const multiAddrs = [
+//    activeMultiaddrs[0], 
+//    multiaddr1,
+//    multiaddr2
+//  ]
 
- const pr = new PeerRecord({
-   peerId: libp2pNode.peerId,
-   multiaddrs: multiAddrs
- })
+//  const pr = new PeerRecord({
+//    peerId: libp2pNode.peerId,
+//    multiaddrs: multiAddrs
+//  })
 
- const envelope = await RecordEnvelope.seal(pr, libp2pNode.peerId)
- console.log('Envelope: ', envelope)
- const marshalled = envelope.marshal()
+//  const envelope = await RecordEnvelope.seal(pr, libp2pNode.peerId)
+//  console.log('Envelope: ', envelope)
+//  const marshalled = envelope.marshal()
 
- const resp = await libp2pNode.peerStore.consumePeerRecord(marshalled)
- console.log('Peer record: ', resp)
+//  const resp = await libp2pNode.peerStore.consumePeerRecord(marshalled)
+//  console.log('Peer record: ', resp)

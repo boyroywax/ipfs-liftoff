@@ -1,7 +1,7 @@
 
 import { createEd25519PeerId } from '@libp2p/peer-id-factory'
-import { createPeerId } from '@libp2p/peer-id'
-import { Ed25519PeerId } from '@libp2p/interface'
+// import { createPeerId } from '@libp2p/peer-id'
+// import { Ed25519PeerId } from '@libp2p/interface'
 
 /* 
 This is the CDN link to the library, use it in an HTML file:
@@ -25,9 +25,9 @@ async function generatePeerIdFactory() {
   return peerId
 }
 
-generatePeerIdFactory().then( (peerId: Ed25519PeerId) => {
-  console.log(peerId.toString())
-})
+// generatePeerIdFactory().then( (peerId: Ed25519PeerId) => {
+//   console.log(peerId.toString())
+// })
 
 // async function generatePeerId() {
 //   const peerId = createPeerId({ type: 'Ed25519' })
@@ -41,4 +41,4 @@ generatePeerIdFactory().then( (peerId: Ed25519PeerId) => {
 //   console.log(peerId.toString())
 // })
 
-// export default generatePeerId
+export { generatePeerIdFactory }

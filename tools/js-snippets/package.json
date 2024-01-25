@@ -2,19 +2,28 @@
   "name": "ipfs-liftoff-js-libp2p-snippets",
   "version": "0.0.1",
   "description": "js-libp2p snippets",
-  "main": "index.js",
+  "main": "./src/index.js",
   "type": "module",
+  "devDependencies": {
+    "@types/node": "^20.11.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.0"
+  },
   "dependencies": {
     "@libp2p/peer-id-factory": "4.0.5",
-    "@libp2p/peer-id": "4.0.5",
-    "libp2p": "1.2.0",
-    "typescript": "^5.3.3"
+    "@libp2p/interface": "1.1.2",
+    "datastore-core": "9.2.7",
+    "blockstore-core": "4.3.10",
+    "libp2p": "1.2.1",
+    "esbuild": "^0.19.12"
   },
   "author": "boyrowyax",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "createPeerId": "node ./build/generatePeerId.js"
-  }
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm",
+    "quick": "ts-node ./src/index.ts",
+    "start": "node ./dist/index.js"
+  },
+  "imports": [ "src/index.ts" ]
 }
