@@ -15,7 +15,8 @@
     "datastore-core": "9.2.7",
     "blockstore-core": "4.3.10",
     "libp2p": "1.2.1",
-    "esbuild": "^0.19.12"
+    "esbuild": "^0.19.12",
+    "multiformats": "13.0.1"
   },
   "author": "boyrowyax",
   "license": "MIT",
@@ -24,6 +25,5 @@
     "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --format=esm",
     "quick": "ts-node ./src/index.ts",
     "start": "node ./dist/index.js"
-  },
-  "imports": [ "src/index.ts" ]
+  }
 }

@@ -1,8 +1,9 @@
-import { generatePeerIdFactory } from './generatePeerId'
+import { generatePeerIdFactory, generateKeys } from './generatePeerId'
 
 export async function main() {
-  const peerId = await generatePeerIdFactory()
-  console.log(peerId.toString())
+    await generatePeerIdFactory()
+    await generateKeys()
+
 }
 
 main().then( () => {
