@@ -9850,8 +9850,10 @@ async function generatePeerIdFactory() {
   const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), "");
   console.log(publicKeyHex);
   console.log(Buffer.from(peerId.publicKey).toString());
+  console.log(base58btc.baseEncode(peerId.multihash.bytes));
   const id = identity.digest(Buffer.from(peerId.publicKey));
   console.log(Buffer.from(id.digest).reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), ""));
+  console.log(base64.baseEncode(Buffer.from(peerId.privateKey)));
   const privateKeyHex = Buffer.from(peerId.privateKey).reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), "");
   console.log(privateKeyHex);
   return peerId;
@@ -9862,6 +9864,7 @@ async function generateKeys() {
   const peerId = await peerIdFromKeys(keys.public.bytes, keys.bytes);
   console.log("PeerId: ", peerId);
   console.log("PrivateKey: ", keys.marshal().toString());
+  console.log("PrivateKey: ", base58btc.baseEncode(keys.marshal()));
   console.log("PublicKey: ", keys.public.marshal().toString());
   const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, "0"), "");
   console.log(publicKeyHex);

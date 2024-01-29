@@ -3,6 +3,8 @@ import { createEd25519PeerId } from '@libp2p/peer-id-factory'
 import * as Libp2PCrypto from '@libp2p/crypto'
 import { peerIdFromKeys } from '@libp2p/peer-id'
 import { identity } from 'multiformats/hashes/identity'
+import { base58btc } from 'multiformats/bases/base58'
+import { base64 } from 'multiformats/bases/base64'
 
 // import { Ed25519PeerId } from '@libp2p/interface'
 
@@ -64,10 +66,11 @@ async function generatePeerIdFactory() {
   const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
   console.log(publicKeyHex)
   console.log((Buffer.from(peerId.publicKey)).toString())
+  console.log(base58btc.baseEncode(peerId.multihash.bytes))
   // console.log(multihash.decode(Buffer.from(peerId.publicKey)))
   const id = identity.digest(Buffer.from(peerId.publicKey))
   console.log((Buffer.from(id.digest).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '')))
-
+  console.log(base64.baseEncode(Buffer.from(peerId.privateKey)))
   const privateKeyHex = Buffer.from(peerId.privateKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
   console.log(privateKeyHex)
   return peerId
@@ -82,6 +85,7 @@ async function generateKeys() {
 
   // const decoder = new TextDecoder('')
   console.log("PrivateKey: ", (keys.marshal().toString()))
+  console.log("PrivateKey: ", (base58btc.baseEncode(keys.marshal())))
   console.log("PublicKey: ", keys.public.marshal().toString())
   // return keys
   const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
