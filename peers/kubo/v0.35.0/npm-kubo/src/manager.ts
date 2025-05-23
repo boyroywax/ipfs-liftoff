@@ -38,11 +38,15 @@ function logError(status: string, message: string, error?: any) {
  * @remarks
  * - The manager supports Linux, macOS, and Windows platforms.
  * - Installation and uninstallation are performed using Yarn.
- * - The path to the Kubo binary can be overridden via the `KUBO_BINARY` environment variable.
+ * - The path to the Kubo binary can be set via the `KUBO_BINARY` environment variable, and overriden by passing a `path` parameter to the constructor.
+ * - The version of Kubo IPFS can be set via the `KUBO_VERSION` environment variable, and overriden by passing a `version` parameter to the constructor.
  *
  * @example
  * ```typescript
- * const manager = new KuboIpfsBinManager();
+ * const manager = new KuboIpfsBinManager({
+ *  version: "0.35.0",
+ *  path: "../node_modules/.bin/ipfs",
+ * });
  * await manager.install();
  * await manager.uninstall();
  * ```
@@ -50,15 +54,37 @@ function logError(status: string, message: string, error?: any) {
  * @public
  */
 class KuboIpfsBinManager {
-    public static DEFAULT_KUBO_VERSION: string = process.env.KUBO_VERSION || "0.35.0";
+    public static readonly DEFAULT_KUBO_VERSION: string = "0.35.0";
+    public static readonly DEFAULT_KUBO_PATH: string = "../node_modules/.bin/ipfs";
+    
+    public readonly version: string;
     public kubo: any;
     public path: string;
     public status: KuboStatus = KuboStatus.NotInstalled;
 
-    constructor() {
+    /**
+     * Creates an instance of KuboIpfsBinManager.
+     * - The `version` and `path` parameters can be set via environment variables.
+     * - If the ENV variables are not set, the default values will be used.
+     * - If the `version` and `path` parameters are provided, they will override the ENV variables.
+     *
+     * @param {Object} options - Options for the manager.
+     * @param {string} [options.version] - The version of Kubo IPFS to install.
+     * @param {string} [options.path] - The path to the Kubo binary.
+     */
+    constructor({
+        version = undefined,
+        path = undefined,
+    }: { version?: string; path?: string; } = {}) {
+        const envVersion = this.getVersionFromEnv();
+        this.version = version !== undefined ? version : envVersion !== undefined ? envVersion : KuboIpfsBinManager.DEFAULT_KUBO_VERSION;
+
         const envPath = this.getPathFromEnv();
-        console.log("Kubo IPFS path from env:", envPath);
-        this.path = envPath !== undefined ? envPath as string : "../node_modules/.bin/ipfs";
+        this.path = path !== undefined ? path : envPath !== undefined ? envPath : KuboIpfsBinManager.DEFAULT_KUBO_PATH;
+    }
+
+    public getVersionFromEnv(): string | undefined {
+        return process.env.KUBO_VERSION;
     }
 
     public getPathFromEnv(): string | undefined {
@@ -131,7 +157,7 @@ class KuboIpfsBinManager {
             packageJson.dependencies = {};
         }
         if (!packageJson.dependencies.kubo) {
-            packageJson.dependencies.kubo = KuboIpfsBinManager.DEFAULT_KUBO_VERSION;
+            packageJson.dependencies.kubo = this.version;
         }
         fs.writeFileSync("package.json", JSON.stringify(packageJson, null, 2));
         log("INFO", "Kubo IPFS added to package.json.");
@@ -197,7 +223,7 @@ class KuboIpfsBinManager {
         const execPromise = promisify(exec);
 
         try {
-            await execPromise("yarn add kubo");
+            await execPromise(`yarn add kubo@${this.version}`);
             log("INFO", "Kubo IPFS installed successfully.");
 
             await execPromise("yarn install");
