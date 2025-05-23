@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  kubo:
+    image: ipfs/kubo:v0.35.0
+    container_name: kubo-v0.35.0
+    ports:
+      - "4001:4001" # Swarm port
+      - "5001:5001" # API port
+      - "8080:8080" # Gateway port
+    volumes:
+      - ./data/ipfs:/data/ipfs # Persistent data storage
+    environment:
+      IPFS_PROFILE: "server" # Optional: Use the 'server' profile for production
+    command:
+      - daemon
+      - --migrate=true
+      - --enable-gc=true
+      - --enable-pubsub-experiment
+    restart: unless-stopped

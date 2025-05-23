@@ -1,0 +1,31 @@
+{
+  "name": "ipfs-liftoff-npm-kubo-v0.35.0",
+  "version": "0.0.1",
+  "description": "Uses the NPM Kubo package to create a basic IPFS node",
+  "keywords": [
+    "ipfs",
+    "kubo",
+    "node"
+  ],
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node index.js",
+    "test": "jest --config jest.config.mjs --runInBand --detectOpenHandles",
+    "docker": "docker compose -f tests/docker/docker-compose.yaml up --build",
+    "docker:down": "docker compose -f tests/docker/docker-compose.yaml down"
+  },
+  "author": "Pocket Labs LLC",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.15.21",
+    "dotenv": "16.5.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {}
+}
