@@ -1,0 +1,12 @@
+services:
+  kubo-test:
+    build:
+      context: ../../
+      dockerfile: tests/docker/Dockerfile.test
+    image: ipfs-liftoff-npm-kubo-tests-v0.35.0:test
+    container_name: ipfs-liftoff-npm-kubo-tests-v0.35.0
+    tty: true
+    stdin_open: true
+    restart: no
+
+        
