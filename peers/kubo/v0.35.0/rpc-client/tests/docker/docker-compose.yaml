@@ -1,0 +1,28 @@
+services:
+  ipfs:
+    image: ipfs/kubo:v0.35.0
+    container_name: ipfs-test-server
+    ports:
+      - "5001:5001"   # API
+      - "8080:8080"   # Gateway
+      - "4001:4001"   # Swarm
+    volumes:
+      - ./data/ipfs:/data/ipfs
+    environment:
+      - IPFS_PROFILE=server
+    command:
+      - daemon
+      - --migrate=true
+      - --enable-gc=true
+      - --enable-pubsub-experiment
+    restart: unless-stopped
+
+  kubo-manager:
+    build:
+      context: ../..
+      dockerfile: tests/docker/Dockerfile.test
+    container_name: kubo-manager-test-client
+    depends_on:
+      - ipfs
+    environment:
+      - IPFS_API_URL=http://ipfs:5001

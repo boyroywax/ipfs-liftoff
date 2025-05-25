@@ -1,4 +1,4 @@
-# `IPFS-liftoff 🛸 `
+# `IPFS-liftoff 🚀 `
 > Tools &amp; Examples for IPFS, IPFS-Cluster, Libp2p, OrbitDB, Bacalhua...
 
 ## Table of Contents

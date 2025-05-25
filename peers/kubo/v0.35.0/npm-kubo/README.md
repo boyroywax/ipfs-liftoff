@@ -20,7 +20,7 @@ npm install kubo@v0.35.0
 ```
 
 ### Optional Path Override
-If you want to override the default path for the Kubo binary, you can set the `KUBO_BINARY` environment variable. [Kubo NPM Readme](https://github.com/ipfs/npm-kubo/blob/master/README.md#overriding-with-kubo_binary-env)
+If you want to override the default path for the Kubo binary, you can set the `KUBO_BINARY` [environment variable](https://github.com/ipfs/npm-kubo/blob/master/README.md#overriding-with-kubo_binary-env).
 
 ```bash
 set KUBO_BINARY=/opt/kubo

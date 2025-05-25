@@ -1,0 +1,34 @@
+{
+  "name": "@trnkts/kubo-manager-test",
+  "version": "0.0.1",
+  "description": "A tool to manage Kubo IPFS nodes.",
+  "keywords": [
+    "ipfs",
+    "kubo",
+    "trnkt",
+    "manager",
+    "cli"
+  ],
+  "author": "Pocket Labs LLC",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "module": "src/index.ts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "NODE_ENV=production tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "node dist/src/index.js",
+    "test": "yarn build && node dist/tests/unit/run.test.js"
+  },
+  "dependencies": {
+    "@multiformats/multiaddr": "^12.4.0",
+    "kubo-rpc-client": "^5.1.0",
+    "undici": "^7.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.21",
+    "typescript": "^5.8.3",
+    "tsc-alias": "^1.8.16"
+  }
+}
