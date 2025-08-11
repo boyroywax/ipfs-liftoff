@@ -5,7 +5,6 @@ import { KuboStatus } from "./status";
 const makeCall = async <T = any>(
     method: (() => Promise<T>) | (() => T) | Function,
     throwOnError: boolean = true
-
 ): Promise<T | undefined> => {
     try {
         const result = await method();

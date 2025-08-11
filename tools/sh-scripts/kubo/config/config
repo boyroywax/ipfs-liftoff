@@ -1,0 +1,240 @@
+{
+    "API": {
+      "HTTPHeaders": {
+        "Access-Control-Allow-Credentials": [
+          "true"
+        ],
+        "Access-Control-Allow-Methods": [
+          "PUT",
+          "GET",
+          "POST"
+        ],
+        "Access-Control-Allow-Origin": [
+          "*"
+        ]
+      }
+    },
+    "Addresses": {
+      "API": "/ip4/0.0.0.0/tcp/5001",
+      "Announce": [],
+      "AppendAnnounce": [
+        "/dnsaddr/bootstrap.ipfs.trnkt.xyz/tcp/4001",
+        "/dnsaddr/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws"
+      ],
+      "Gateway": "/ip4/0.0.0.0/tcp/8080",
+      "NoAnnounce": [
+        "/ip4/100.64.0.0/ipcidr/10",
+        "/ip4/169.254.0.0/ipcidr/16",
+        "/ip4/172.16.0.0/ipcidr/12",
+        "/ip4/198.18.0.0/ipcidr/15",
+        "/ip4/198.51.100.0/ipcidr/24",
+        "/ip4/203.0.113.0/ipcidr/24",
+        "/ip4/240.0.0.0/ipcidr/4",
+        "/ip6/100::/ipcidr/64",
+        "/ip6/2001:2::/ipcidr/48",
+        "/ip6/2001:db8::/ipcidr/32",
+        "/ip6/fc00::/ipcidr/7",
+        "/ip6/fe80::/ipcidr/10"
+      ],
+      "Swarm": [
+        "/ip4/0.0.0.0/tcp/4001",
+        "/ip4/0.0.0.0/tcp/4003/ws/",
+        "/ip6/::/tcp/4001/",
+        "/ip6/::/tcp/4003/ws/",
+        "/ip4/0.0.0.0/udp/4002/",
+        "/dns4/web-ipfs-node-bootstrap-tcp-ws/tcp/4003/ws/",
+        "/dns4/web-ipfs-node-bootstrap-tcp/tcp/4001/",
+        "/dns4/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws/",
+        "/dns4/bootstrap.ipfs.trnkt.xyz/tcp/4001/",
+        "/p2p-circuit/",
+        "/webrtc"
+      ]
+    },
+    "AutoNAT": {
+      "ServiceMode": "enabled"
+    },
+    "Bootstrap": [
+      "/ip4/0.0.0.0/tcp/4003/wss/p2p/12D3KooWHSiT24kaXquLa4HB2h9eGtnXRAryWMZjinbe7yt5ihUd",
+      "/ip4/0.0.0.0/tcp/4003/wss/p2p/12D3KooWLMWGmGf6LEsVvtJTAoSogfbiHqQzsPfJvAC3kE7ikkP6",
+      "/ip4/0.0.0.0/tcp/4003/wss/p2p/12D3KooWDRmmGtJksoRrbuETHUAWRTDvkZiykEQtUdBHj3Vg2Ha6"
+    ],
+    "DNS": {
+      "Resolvers": {}
+    },
+    "Datastore": {
+      "BloomFilterSize": 1048576,
+      "GCPeriod": "1h",
+      "HashOnRead": false,
+      "Spec": {
+        "child": {
+          "path": "badgerds",
+          "syncWrites": false,
+          "truncate": true,
+          "type": "badgerds"
+        },
+        "prefix": "badger.datastore",
+        "type": "measure"
+      },
+      "StorageGCWatermark": 90,
+      "StorageMax": "100GB"
+    },
+    "Discovery": {
+      "MDNS": {
+        "Enabled": true
+      }
+    },
+    "Experimental": {
+      "FilestoreEnabled": false,
+      "Libp2pStreamMounting": false,
+      "OptimisticProvide": false,
+      "OptimisticProvideJobsPoolSize": 0,
+      "P2pHttpProxy": false,
+      "StrategicProviding": false,
+      "UrlstoreEnabled": false
+    },
+    "Gateway": {
+      "APICommands": [],
+      "DeserializedResponses": null,
+      "DisableHTMLErrors": null,
+      "ExposeRoutingAPI": true,
+      "HTTPHeaders": {},
+      "NoDNSLink": false,
+      "NoFetch": false,
+      "PathPrefixes": [],
+      "PublicGateways": null,
+      "RootRedirect": ""
+    },
+    "Identity": {
+      "PeerID": "12D3KooWNFkQH6PeC2zsuSrDd3S9FDMNaqePumUEoSvxceJJYtjf",
+      "PrivKey": "CAESQIJNROpSb5alYam5a/8oNRy3yiX/WgH/gdFr5f/RlIvnuMznFOt7dC8U/D8PVRBCktiwFN8mwQD/btneRN76lB4="
+    },
+    "Internal": {},
+    "Ipns": {
+      "RecordLifetime": "",
+      "RepublishPeriod": "",
+      "ResolveCacheSize": 128
+    },
+    "Migration": {
+      "DownloadSources": [],
+      "Keep": ""
+    },
+    "Mounts": {
+      "FuseAllowOther": false,
+      "IPFS": "/ipfs",
+      "IPNS": "/ipns"
+    },
+    "Peering": {
+      "Peers": [
+        {
+          "ID": "12D3KooWHSiT24kaXquLa4HB2h9eGtnXRAryWMZjinbe7yt5ihUd",
+          "Addrs": [
+            "/dnsaddr/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws", "/dnsaddr/bootstrap.ipfs.trnkt.xyz/tcp/4001/"
+          ]
+        },
+        {
+          "ID": "12D3KooWLMWGmGf6LEsVvtJTAoSogfbiHqQzsPfJvAC3kE7ikkP6",
+          "Addrs": [
+            "/dnsaddr/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws", "/dnsaddr/bootstrap.ipfs.trnkt.xyz/tcp/4001/"
+          ]
+        },
+        {
+          "ID": "12D3KooWDRmmGtJksoRrbuETHUAWRTDvkZiykEQtUdBHj3Vg2Ha6",
+          "Addrs": [
+            "/dnsaddr/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws", "/dnsaddr/bootstrap.ipfs.trnkt.xyz/tcp/4001/"
+          ]
+        },
+        {
+          "ID": "12D3KooWNFkQH6PeC2zsuSrDd3S9FDMNaqePumUEoSvxceJJYtjf",
+          "Addrs": [
+            "/dnsaddr/bootstrap-ws.ipfs.trnkt.xyz/tcp/4003/ws", "/dnsaddr/bootstrap.ipfs.trnkt.xyz/tcp/4001/"
+          ]
+        }
+      ]
+    },
+    "Pinning": {
+      "RemoteServices": {}
+    },
+    "Plugins": {
+      "Plugins": null
+    },
+    "Provider": {
+      "Strategy": ""
+    },
+    "Pubsub": {
+      "DisableSigning": false,
+      "Router": "gossipsub"
+    },
+    "Reprovider": {},
+    "Routing": {
+      "AcceleratedDHTClient": false,
+      "Methods": null,
+      "Routers": null,
+      "Type": "dht"
+    },
+    "Swarm": {
+      "AddrFilters": [
+        "/ip4/100.64.0.0/ipcidr/10",
+        "/ip4/169.254.0.0/ipcidr/16",
+        "/ip4/172.16.0.0/ipcidr/12",
+        "/ip4/198.18.0.0/ipcidr/15",
+        "/ip4/198.51.100.0/ipcidr/24",
+        "/ip4/203.0.113.0/ipcidr/24",
+        "/ip4/240.0.0.0/ipcidr/4",
+        "/ip6/100::/ipcidr/64",
+        "/ip6/2001:2::/ipcidr/48",
+        "/ip6/2001:db8::/ipcidr/32",
+        "/ip6/fc00::/ipcidr/7",
+        "/ip6/fe80::/ipcidr/10"
+      ],
+      "ConnMgr": {
+        "GracePeriod": "20s",
+        "HighWater": 2000,
+        "LowWater": 600,
+        "Type": "basic"
+      },
+      "DisableBandwidthMetrics": false,
+      "DisableNatPortMap": false,
+      "EnableHolePunching": true,
+      "Protector": {
+        "Key": "/data/ipfs/swarm.key",
+        "Type": "libp2p-pnet"
+      },
+      "RelayClient": {
+        "Enabled": true,
+        "StaticRelays": [
+        ]
+      },
+      "RelayService": {
+        "Enabled": true,
+        "Limit": {},
+        "ConnectionDurationLimit": "10m",
+        "ConnectionDataLimit": 1310720000,
+        "ReservationTTL": "1h",
+        "MaxReservations": 256,
+        "MaxCircuits": 128,
+        "BufferSize": 2048,
+        "MaxReservationPerPeer": 10,
+        "MaxReservationsPerIP": 16,
+        "MaxReservationsPerASN": 64
+      },
+      "ResourceMgr": {},
+      "Transports": {
+        "Multiplexers": {
+          "Yamux": 100
+        },
+
+        "Network": { 
+          "WebRTCStar": true,
+          "Relay": true,
+          "QUIC": false,
+          "TCP": true,
+          "WebSocket": true,
+          "WebTransport": false,
+          "WebRTC": true
+        },
+        "Security": {
+          "Noise": 300
+        }
+      }
+    }
+  }

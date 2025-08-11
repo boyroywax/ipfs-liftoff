@@ -9,6 +9,7 @@ let identify
 try {
     identify = await client.identify()
     console.log('identify:', identify)
+    console.log('peers: ', await client.listPeers())
 } catch (err) {
     console.error('identify error:', err)
 }

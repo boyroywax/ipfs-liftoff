@@ -1,4 +1,4 @@
-# js-libp2p-daemon
+# js-libp2p-daemon-server
 
 > A daemon for libp2p, also available in Go
 
@@ -20,7 +20,7 @@ npm i \
     '@libp2p/daemon-server' \
     '@libp2p/kad-dht' \
     '@libp2p/mdns' \
-    '@libp2p/tcp \
+    '@libp2p/tcp' \
     '@libp2p/webrtc' \
     '@libp2p/websockets' \
     '@libp2p/webtransport' \

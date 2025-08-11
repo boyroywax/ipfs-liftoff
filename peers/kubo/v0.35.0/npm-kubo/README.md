@@ -5,7 +5,7 @@ The Kubo NPM package is a JavaScript library that provides a simple way to insta
 
 
 ## What does this package do?
-This package is a test suite containing a wrapper around the Kubo NPM. It provides a simple way to install and remove the Kubo IPFS daemon and its dependencies.  This package is for testing and demonstration purposes only. It is not intended for production use.
+This package is a test suite containing a wrapper around npm-kubo. It provides a simple way to install and remove the Kubo IPFS daemon and its dependencies.  This package is for testing and demonstration purposes only. It is not intended for production use.
 
 
 ## Installation

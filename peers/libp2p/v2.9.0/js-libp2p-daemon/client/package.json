@@ -1,0 +1,18 @@
+{
+    "name": "ipfs-liftoff-libp2p-daemon-client",
+  "version": "0.0.2",
+  "description": "An instance of the libp2p daemon client",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node build/index.js"
+  },
+  "author": "boyrowyax",
+  "license": "MIT",
+  "dependencies": {
+    "@libp2p/daemon-client": "^9.0.6",
+    "@multiformats/multiaddr": "^12.5.1"
+  }
+}
