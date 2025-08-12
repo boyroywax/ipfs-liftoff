@@ -47,12 +47,6 @@ const loadIPFS = async () => {
   }
 
   const libp2pNode = await createLibp2p({
-    // addresses: {
-    //   listen: [
-    //     '/ip4/0.0.0.0/tcp/0/ws',
-    //     '/dns4/signal.ipfs.trnkt.xyz/tcp/443/wss/p2p-webrtc-star/'
-    //   ],
-    // },
     transports: [
       webSockets(),
       webRTC(),

@@ -40,7 +40,7 @@ const libp2p = await createLibp2p({
         webTransport(),
         tcp(),
         circuitRelayTransport({
-        discoverRelays: 2
+            discoverRelays: 2
         }),
         webRTC()
     ],
