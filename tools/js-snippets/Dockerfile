@@ -2,11 +2,12 @@
 #  BASE   #
 ###########
 
-FROM node:21-alpine3.18 as base
+FROM node:24.5.0-alpine3.21 AS base
 
 WORKDIR /home/app
 
-COPY package*.json ./
+# COPY package*.json ./
+COPY package.json ./
 COPY tsconfig.json ./
 
 RUN yarn install
@@ -21,7 +22,7 @@ RUN yarn build
 #  TS-REMOVER   #
 #################
 
-FROM node:21-alpine3.18 as ts-remover
+FROM node:24.5.0-alpine3.21 AS ts-remover
 
 WORKDIR /usr/app
 
@@ -35,7 +36,7 @@ COPY --from=base /home/app/dist ./
 #  FINAL  #
 ###########
 
-FROM node:21-alpine3.18
+FROM node:24.5.0-alpine3.21
 
 WORKDIR /usr/app
 

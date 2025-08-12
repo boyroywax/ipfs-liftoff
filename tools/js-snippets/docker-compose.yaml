@@ -1,6 +1,5 @@
-version: '3'
 services:
   ipfs-liftoff-js-snippets:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev

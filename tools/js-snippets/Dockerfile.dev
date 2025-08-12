@@ -5,13 +5,14 @@ FROM node:latest
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+COPY package*.json tsconfig.json ./
+
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code to the working directory
-COPY . .
+COPY ./src ./src
 
 # Build the TypeScript application
 RUN npm run build

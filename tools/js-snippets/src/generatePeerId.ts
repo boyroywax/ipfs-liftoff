@@ -1,120 +1,194 @@
+import { generateKeyPair } from '@libp2p/crypto/keys'; 
+// import { keys } from '@libp2p/crypto';
+import { AbortOptions, Ed25519PeerId, PeerId, PrivateKey } from '@libp2p/interface';
+import { peerIdFromPrivateKey } from '@libp2p/peer-id';
+import { CID, MultihashDigest } from 'multiformats';
 
-import { createEd25519PeerId } from '@libp2p/peer-id-factory'
-import * as Libp2PCrypto from '@libp2p/crypto'
-import { peerIdFromKeys } from '@libp2p/peer-id'
-import { identity } from 'multiformats/hashes/identity'
-import { base58btc } from 'multiformats/bases/base58'
-import { base64 } from 'multiformats/bases/base64'
-
-// import { Ed25519PeerId } from '@libp2p/interface'
-
-/* 
-This is the CDN link to the library, use it in an HTML file:
-
-```html
-  <script src="https://cdn.jsdelivr.net/npm/@libp2p/peer-id-factory/dist/index.min.js"></script>
-```
-
-The library is now available in the global scope as `Libp2pPeerIdFactory`
-
-```js
-  const g = globalThis as any;
-  const createEd25519PeerId = g.Libp2PPeerIdFactory.createEd25519PeerId;
-```
-*/
+// const { generateKeyPair } = keys;
 
 /*
-This is the CDN link to the library, use it in an HTML file:
+The CDN link for the crypto library (to be used in raw HTML)
 
 ```html
-  <script src="https://cdn.jsdelivr.net/npm/libp2p-crypto/dist/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/libp2p-crypto-secp256k1/dist/index.min.js"></script>
+<script src="https://unpkg.com/@libp2p/crypto/dist/index.min.js"></script>
 ```
 
-The library is now available in the global scope as `Libp2pCrypto` and `Libp2pCryptoSecp256k1`
+This will make the library available globally as `Libp2pCrypto`.
 
 ```js
-  const g = globalThis as any;
-  const generateKeyPair = g.Libp2pCrypto.keys.generateKeyPair;
-  const secp256k1 = g.Libp2pCryptoSecp256k1;
-```
-*/
+const g = globalThis as any;
+const { generateKeyPair } = g.Libp2pCrypto;
 
-/*
-This is the CDN link to the library, use it in an HTML file:
-
-```html
-  <script src="https://unpkg.com/multiformats/dist/index.min.js"></script>
-```
-
-The library is now available in the global scope as `Multiformats`
-
-```js
-  const g = globalThis as any;
-  const multihash = g.Multiformats.multihash;
 ```
 */
 
 
+interface Ed25519PublicKey {
+  /**
+   * The type of this key
+   */
+  readonly type: 'Ed25519'
 
-async function generatePeerIdFactory() {
-  const peerId = await createEd25519PeerId()
-  console.log(peerId.toString())
+  /**
+   * The raw public key bytes
+   */
+  readonly raw: Uint8Array
 
-  const decoder = new TextDecoder('utf-8')
-  console.log((decoder.decode(peerId.privateKey)).toString())
-  const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-  console.log(publicKeyHex)
-  console.log((Buffer.from(peerId.publicKey)).toString())
-  console.log(base58btc.baseEncode(peerId.multihash.bytes))
-  // console.log(multihash.decode(Buffer.from(peerId.publicKey)))
-  const id = identity.digest(Buffer.from(peerId.publicKey))
-  console.log((Buffer.from(id.digest).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '')))
-  console.log(base64.baseEncode(Buffer.from(peerId.privateKey)))
-  const privateKeyHex = Buffer.from(peerId.privateKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-  console.log(privateKeyHex)
-  return peerId
+  /**
+   * Returns `true` if the passed object matches this key
+   */
+  equals(key?: any): boolean
+
+  /**
+   * Returns this public key as an identity hash containing the protobuf wrapped
+   * public key
+   */
+  toMultihash(): MultihashDigest<0x0>
+
+  /**
+   * Return this public key as a CID encoded with the `libp2p-key` codec
+   *
+   * The digest contains an identity hash containing the protobuf wrapped
+   * version of the public key.
+   */
+  toCID(): CID<unknown, 0x72, 0x0, 1>
+
+  /**
+   * Verify the passed data was signed by the private key corresponding to this
+   * public key
+   */
+  verify(data: Uint8Array, sig: Uint8Array, options?: AbortOptions): boolean | Promise<boolean>
+
+  /**
+   * Returns this key as a multihash with base58btc encoding
+   */
+  toString(): string
 }
 
-async function generateKeys() {
-  const keys = await Libp2PCrypto.keys.generateKeyPair('RSA', 1024)
-  console.log("PeerId: ", await keys.id())
 
-  const peerId = await peerIdFromKeys(keys.public.bytes, keys.bytes)
-  console.log("PeerId: ", peerId)
+interface Ed25519PrivateKey {
+  /**
+   * The type of this key
+   */
+  readonly type: 'Ed25519'
 
-  // const decoder = new TextDecoder('')
-  console.log("PrivateKey: ", (keys.marshal().toString()))
-  console.log("PrivateKey: ", (base58btc.baseEncode(keys.marshal())))
-  console.log("PublicKey: ", keys.public.marshal().toString())
-  // return keys
-  const publicKeyHex = Buffer.from(peerId.publicKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-  console.log(publicKeyHex)
+  /**
+   * The public key that corresponds to this private key
+   */
+  readonly publicKey: Ed25519PublicKey
 
-  const privateKeyHex = Buffer.from(peerId.privateKey).reduce((str, byte) => str + byte.toString(16).padStart(2, '0'), '');
-  console.log(privateKeyHex)
+  /**
+   * The raw private key bytes
+   */
+  readonly raw: Uint8Array
 
-  // now encode with base64
-  const publicKeyBase64 = Buffer.from(publicKeyHex, 'hex').toString('base64');
-  console.log(publicKeyBase64)
+  /**
+   * Returns `true` if the passed object matches this key
+   */
+  equals(key?: any): boolean
 
-  const privateKeyBase64 = Buffer.from(privateKeyHex, 'hex').toString('base64');
-  console.log(privateKeyBase64)
+  /**
+   * Sign the passed data with this private key and return the signature for
+   * later verification
+   */
+  sign(data: Uint8Array, options?: AbortOptions): Uint8Array | Promise<Uint8Array>
 }
 
-// generatePeerIdFactory().then( (peerId: Ed25519PeerId) => {
-//   console.log(peerId.toString())
-// })
 
-// async function generatePeerId() {
-//   console.log('PeerId: ', peerId)
-//   console.log('PrivateKey: ', peerId.privKey)
-//   console.log('PublicKey: ', peerId.pubKey)
-//   return peerId
-// }
+async function generateEd25519PeerId(): Promise<{
+    id: string;
+    privateKey: Ed25519PrivateKey;
+}> {
+  const privateKey: Ed25519PrivateKey = await generateKeyPair("Ed25519");
+  const id = peerIdFromPrivateKey(privateKey);
+  return { id: id.toString(), privateKey };
+}
 
-// generatePeerId().then( (peerId: PeerId) => {
-//   console.log(peerId.toString())
-// })
+interface Secp256k1PublicKey {
+  /**
+   * The type of this key
+   */
+  readonly type: 'secp256k1'
 
-export { generatePeerIdFactory, generateKeys }
+  /**
+   * The raw public key bytes
+   */
+  readonly raw: Uint8Array
+
+  /**
+   * Returns `true` if the passed object matches this key
+   */
+  equals(key?: any): boolean
+
+  /**
+   * Returns this public key as an identity hash containing the protobuf wrapped
+   * public key
+   */
+  toMultihash(): MultihashDigest<0x0>
+
+  /**
+   * Return this public key as a CID encoded with the `libp2p-key` codec
+   *
+   * The digest contains an identity hash containing the protobuf wrapped
+   * version of the public key.
+   */
+  toCID(): CID<unknown, 0x72, 0x0, 1>
+
+  /**
+   * Verify the passed data was signed by the private key corresponding to this
+   * public key
+   */
+  verify(data: Uint8Array, sig: Uint8Array, options?: AbortOptions): boolean | Promise<boolean>
+
+  /**
+   * Returns this key as a multihash with base58btc encoding
+   */
+  toString(): string
+}
+
+interface Secp256k1PrivateKey {
+  /**
+   * The type of this key
+   */
+  readonly type: 'secp256k1'
+
+  /**
+   * The public key that corresponds to this private key
+   */
+  readonly publicKey: Secp256k1PublicKey
+
+  /**
+   * The raw private key bytes
+   */
+  readonly raw: Uint8Array
+
+  /**
+   * Returns `true` if the passed object matches this key
+   */
+  equals(key?: any): boolean
+
+  /**
+   * Sign the passed data with this private key and return the signature for
+   * later verification
+   */
+  sign(data: Uint8Array, options?: AbortOptions): Uint8Array | Promise<Uint8Array>
+}
+
+async function generateSecp256k1PeerId(): Promise<{
+    id: string;
+    privateKey: Secp256k1PrivateKey;
+}> {
+  const privateKey: Secp256k1PrivateKey = await generateKeyPair("secp256k1");
+  const id = peerIdFromPrivateKey(privateKey);
+  return { id: id.toString(), privateKey };
+}
+
+
+export {
+    generateEd25519PeerId,
+    generateSecp256k1PeerId,
+    type Ed25519PublicKey,
+    type Ed25519PrivateKey,
+    type Secp256k1PublicKey,
+    type Secp256k1PrivateKey
+};
