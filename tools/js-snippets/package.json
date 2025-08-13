@@ -16,6 +16,7 @@
     "@libp2p/interface": "1.1.2",
     "@libp2p/peer-id": "^5.1.8",
     "@libp2p/peer-id-factory": "4.0.5",
+    "@libp2p/pnet": "^2.0.46",
     "blockstore-core": "4.3.10",
     "datastore-core": "9.2.7",
     "esbuild": "^0.19.12",
